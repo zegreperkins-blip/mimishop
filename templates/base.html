@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% block title %}MIMISHOP — La mode au féminin{% endblock %}</title>
+<meta name="description" content="MIMISHOP, votre boutique de mode féminine en Côte d'Ivoire. Découvrez robes, abayas et lingerie.">
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"></head>
+<body>
+<div class="topbar">MIMISHOP — L'élégance au féminin · Commandez facilement sur WhatsApp</div>
+<header class="header"><a class="logo" href="{{ url_for('index') }}">MIMI<span>SHOP</span><small>LA MODE AU FÉMININ</small></a>
+<nav><a href="{{ url_for('index') }}">Accueil</a><a href="{{ url_for('index', categorie='Robes') }}">Robes</a><a href="{{ url_for('index', categorie='Abayas') }}">Abayas</a><a href="{{ url_for('index', categorie='Slips') }}">Slips</a></nav>
+<a class="cart-link" href="{{ url_for('cart') }}">Panier <b>＋</b></a></header>
+<main>{% with messages = get_flashed_messages(with_categories=true) %}{% if messages %}<div class="messages">{% for category, message in messages %}<p class="{{ category }}">{{ message }}</p>{% endfor %}</div>{% endif %}{% endwith %}{% block content %}{% endblock %}</main>
+<footer><div><a class="logo light" href="{{ url_for('index') }}">MIMI<span>SHOP</span></a><p>La mode qui révèle votre élégance.</p></div><div><b>Contact</b><p>WhatsApp : {{ whatsapp }}</p><p>{{ store_email }}</p></div><div><b>Informations</b><p>Paiement à la livraison</p><p>Côte d'Ivoire</p><a href="{{ url_for('admin_login') }}">Administration</a></div><small class="copyright">© 2026 MIMISHOP. Tous droits réservés.</small></footer>
+<a class="whatsapp-float" href="https://wa.me/2250576949824" target="_blank" rel="noopener">WhatsApp</a>
+<script src="{{ url_for('static', filename='app.js') }}"></script></body></html>
