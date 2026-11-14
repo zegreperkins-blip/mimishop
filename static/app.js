@@ -1,0 +1,5 @@
+document.querySelectorAll('input[type="number"]').forEach(input => {
+  input.addEventListener('change', () => {
+    if (Number(input.value) < 0) input.value = 0;
+  });
+});
